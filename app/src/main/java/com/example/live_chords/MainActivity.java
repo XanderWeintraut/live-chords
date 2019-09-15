@@ -1,4 +1,3 @@
-
 package com.example.live_chords;
 
 import androidx.appcompat.app.AppCompatActivity;
