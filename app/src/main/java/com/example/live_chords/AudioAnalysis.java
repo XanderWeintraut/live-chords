@@ -51,6 +51,4 @@ public class AudioAnalysis<p> extends ViewModel implements Runnable {
     private void setChordName() {
         //To implement
     }
-
-    private v
 }

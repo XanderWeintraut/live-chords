@@ -65,12 +65,26 @@ public class SecondActivity extends AppCompatActivity {
 
     public SpectralPeakProcessor peaks;
 
+    Thread thread = new Thread() {
+        @Override
+        public void run() {
+            try {
+                while(true) {
+                    sleep(200);
+                    handler.post(this);
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        peaks = new SpectralPeakProcessor(bufferSize, overlap, sampleRate)
+        peaks = new SpectralPeakProcessor(bufferSize, overlap, sampleRate);
         AudioDispatcher dispatcher = AudioDispatcherFactory.fromDefaultMicrophone(22050,1024,0);
         dispatcher.addAudioProcessor(peaks);
 
@@ -82,11 +96,12 @@ public class SecondActivity extends AppCompatActivity {
                 if(checkPermission()) {
                     if(!active){
                         setContentView(R.layout.activity_three);
-                        new Thread(dispatcher,"Audio Dispatcher").start();
+                        thread.start();
 
                     }
                     else{
                         setContentView(R.layout.activity_second);
+                        thread.stop();
                     }
                 } else {
                     requestPermission();
