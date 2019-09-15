@@ -74,9 +74,6 @@ public class SecondActivity extends AppCompatActivity {
                     Toast.makeText(SecondActivity.this, "Recording started", Toast.LENGTH_LONG).show();
 
                     setContentView(R.layout.activity_three);
-
-                    //startActivity(new Intent(SecondActivity.this, ThirdActivity.class));
-
                 } else {
                     requestPermission();
                 }
