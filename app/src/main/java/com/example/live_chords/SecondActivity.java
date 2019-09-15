@@ -15,7 +15,6 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-import android.core.app.ActivityCompat;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.ToggleButton;
 
@@ -47,8 +46,7 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ActivityCompat.requestPermissions(this,)
-        setContentView(R.layout.activity_second);
+
     }
 
 
