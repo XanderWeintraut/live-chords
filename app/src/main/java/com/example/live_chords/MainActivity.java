@@ -28,21 +28,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 startActivity(intent);
             }
-        }, 5000);
-    }
-        /*
-        button = findViewById(R.id.imageButton2);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-                openActivity2();
-            }
-        });
+        }, 2000);
     }
 
-    public void openActivity2() {
-        Intent intent = new Intent(this, SecondActivity.class);
-        startActivity(intent);
-    }
-    */
 }
