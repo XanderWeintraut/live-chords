@@ -7,7 +7,7 @@ package com.example.live_chords;
  * Based heavily off of example found here: https://developer.android.com/guide/topics/media/mediarecorder#java
  * Also based heavily off of: https://www.tutorialspoint.com/android/android_audio_capture.htm
  *
- * @Author Xander Weintraut and Anirudh Rao
+ * @Author Xander Weintraut, Anirudh Rao, Charlie Horn
  * @Version 2:04 AM, September 15 2019
  *
  */
@@ -22,6 +22,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.DragStartHelper;
 
 import android.os.Environment;
 import android.view.View;
@@ -139,7 +140,7 @@ public class SecondActivity extends AppCompatActivity {
     }
 
     public String getChord() {
-        String chordName;
+
         double[] peakFrequencies = getPeakFrequencies();
         int[] noteValues = new int[peakFrequencies.length];
 
@@ -147,10 +148,129 @@ public class SecondActivity extends AppCompatActivity {
             noteValues[i] = PitchConverter.hertzToMidiKey(peakFrequencies[i]);
         }
 
+        boolean cNote = false;
+        boolean cSHNote = false;
+        boolean dNote = false;
+        boolean dSHNote = false;
+        boolean eNote = false;
+        boolean fNote = false;
+        boolean fSHNote = false;
+        boolean gNote = false;
+        boolean gSHNote = false;
+        boolean aNote = false;
+        boolean aSHNote = false;
+        boolean bNote = false;
 
+        for (int k = 0; k<noteValues.length; k++){ //loop through each value in the array
+            switch (noteValues[k]%12){ //determine the remainder of the MIDI value/12 and assign note name
+                case 0: cNote = true;
+                break;
+                case 1: cSHNote = true;
+                break;
+                case 2: dNote = true;
+                break;
+                case 3: dSHNote = true;
+                break;
+                case 4: eNote = true;
+                break;
+                case 5: fNote = true;
+                break;
+                case 6: fSHNote = true;
+                break;
+                case 7: gNote = true;
+                break;
+                case 8: gSHNote = true;
+                break;
+                case 9: aNote = true;
+                break;
+                case 10: aSHNote = true;
+                break;
+                case 11: bNote = true;
+                break;
+                default: break;
+            }
+        } //end determining present notes
 
-        return chordName;
+        /////////////DEFINE MAJOR CHORDS/////////////
+        if (cNote && eNote && gNote){
+            return "C MAJOR";
+        }
+        if (cSHNote && fNote && gSHNote){
+            return "C SHARP MAJOR";
+        }
+        if (dNote && fSHNote && aNote){
+            return "D MAJOR";
+        }
+        if (dSHNote && gNote && aSHNote){
+            return "D SHARP MAJOR";
+        }
+        if (eNote && gSHNote && bNote){
+            return "E MAJOR";
+        }
+        if (fNote && aNote && cNote){
+            return "F MAJOR";
+        }
+        if (fSHNote && aSHNote && cSHNote){
+            return "F SHARP MAJOR";
+        }
+        if (gNote && bNote && dNote){
+            return "G MAJOR";
+        }
+        if (gSHNote && cNote && dSHNote){
+            return "G SHARP MAJOR";
+        }
+        if (aNote && cSHNote && eNote){
+            return "A MAJOR";
+        }
+        if (aSHNote && dNote && fNote){
+            return "A SHARP MAJOR";
+        }
+        if (bNote && dSHNote && fSHNote){
+            return "B MAJOR";
+        }
+
+        //////////END MAJOR//////////
+        //////////BEGIN MINOR////////
+
+        if (cNote && dSHNote && gNote){
+            return "C MINOR";
+        }
+        if (cSHNote && eNote && gSHNote){
+            return "C SHARP MINOR";
+        }
+        if (dNote && fNote && aNote){
+            return "D MINOR";
+        }
+        if (dSHNote && fSHNote && aSHNote){
+            return "D SHARP MINOR";
+        }
+        if (eNote && gNote && bNote){
+            return "E MINOR";
+        }
+        if (fNote && gSHNote && cNote){
+            return "F MINOR";
+        }
+        if (fSHNote && aNote && cSHNote){
+            return "F SHARP MINOR";
+        }
+        if (gNote && aSHNote && dNote){
+            return "G MINOR";
+        }
+        if (gSHNote && bNote && dSHNote){
+            return "G SHARP MINOR";
+        }
+        if (aNote && cNote && eNote){
+            return "A MINOR";
+        }
+        if (aSHNote && cSHNote && fNote){
+            return "A SHARP MINOR";
+        }
+        if (bNote && dNote && fSHNote){
+            return "B MINOR";
+        }
+        return "Chord not recognized";
     }
+    ////END CHORD IDENTIFIER////
 
     private double[] getPeakFrequencies() {
         float[] magnitudes = peaks.getMagnitudes();
