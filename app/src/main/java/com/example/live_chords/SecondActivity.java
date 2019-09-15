@@ -12,10 +12,14 @@ package com.example.live_chords;
  */
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ToggleButton;
 
 public class SecondActivity extends AppCompatActivity {
@@ -23,7 +27,7 @@ public class SecondActivity extends AppCompatActivity {
     private static final String LOG_TAG = "AudioRecordTest";
     private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
 
-
+    /*
     private ToggleButton button = null;
 
     // Requesting permission to RECORD_AUDIO
@@ -42,10 +46,26 @@ public class SecondActivity extends AppCompatActivity {
 
     }
 
+     */
+
+    private ImageButton button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+        button = findViewById(R.id.imageButton3);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                openActivity3();
+            }
+        });
+    }
+
+    public void openActivity3() {
+        Intent intent = new Intent(this, ThirdActivity.class);
+        startActivity(intent);
     }
 }
