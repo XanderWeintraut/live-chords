@@ -38,6 +38,7 @@ import java.util.Random;
 
 import static android.Manifest.permission.RECORD_AUDIO;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+import static android.util.Log.d;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -61,10 +62,7 @@ public class SecondActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(checkPermission()) {
                     if(a % 2 == 0){
-                        AudioSavePathInDevice = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + CreateRandomAudioFileName(5) + "AudioRecording.3gp";
-
                         MediaRecorderReady();
-
                         try {
                             mediaRecorder.prepare();
                             mediaRecorder.start();
@@ -73,11 +71,8 @@ public class SecondActivity extends AppCompatActivity {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-
                         a++;
-
                         Toast.makeText(SecondActivity.this, "Recording started", Toast.LENGTH_LONG).show();
-
                         setContentView(R.layout.activity_three);
                     }
                     else{
@@ -99,16 +94,6 @@ public class SecondActivity extends AppCompatActivity {
         mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         mediaRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
         mediaRecorder.setOutputFile(AudioSavePathInDevice);
-    }
-
-    public String CreateRandomAudioFileName(int string){
-        StringBuilder stringBuilder = new StringBuilder(string);
-        int i = 0;
-        while(i < string) {
-            stringBuilder.append(RandomAudioFileName.charAt(random.nextInt(RandomAudioFileName.length())));
-            i++;
-        }
-        return stringBuilder.toString();
     }
 
     private void requestPermission(){
