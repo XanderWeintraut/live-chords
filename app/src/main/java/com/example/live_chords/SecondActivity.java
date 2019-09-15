@@ -20,6 +20,7 @@ import android.media.MediaRecorder;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+//<<<<<<< HEAD
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -28,6 +29,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
+//=======
+
+import android.view.View;
+import android.widget.ImageButton;
+//>>>>>>> 31df55d1b62eefc072b4f81940d2d6bebb266a0d
 import android.widget.ToggleButton;
 
 import java.io.IOException;
@@ -59,6 +65,7 @@ public class SecondActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(checkPermission()) {
                     AudioSavePathInDevice = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + CreateRandomAudioFileName(5) + "AudioRecording.3gp";
+//>>>>>>> 31df55d1b62eefc072b4f81940d2d6bebb266a0d
 
                     MediaRecorderReady();
 
@@ -103,6 +110,8 @@ public class SecondActivity extends AppCompatActivity {
         ActivityCompat.requestPermissions(SecondActivity.this, new String[]{WRITE_EXTERNAL_STORAGE, RECORD_AUDIO}, RequestPermissionCode);
     }
 
+    private ImageButton button;
+
     @Override
     public  void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults){
         switch(requestCode) {
@@ -121,9 +130,17 @@ public class SecondActivity extends AppCompatActivity {
         }
     }
 
+//<<<<<<< HEAD
     public boolean checkPermission() {
         int result = ContextCompat.checkSelfPermission(getApplicationContext(), WRITE_EXTERNAL_STORAGE);
         int result1 = ContextCompat.checkSelfPermission(getApplicationContext(), RECORD_AUDIO);
         return result == PackageManager.PERMISSION_GRANTED && result1 == PackageManager.PERMISSION_GRANTED;
+//=======
+    }
+
+    public void openActivity3() {
+        Intent intent = new Intent(this, ThirdActivity.class);
+        startActivity(intent);
+//>>>>>>> 31df55d1b62eefc072b4f81940d2d6bebb266a0d
     }
 }

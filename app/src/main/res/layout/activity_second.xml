@@ -2,22 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
     tools:context=".SecondActivity">
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="131dp"
-        android:layout_marginLeft="131dp"
-        android:layout_marginTop="522dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/button_1" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -25,10 +14,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="150dp"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="314dp"
+        android:layout_marginTop="283dp"
         android:layout_marginEnd="150dp"
         android:layout_marginRight="150dp"
-        android:layout_marginBottom="288dp"
+        android:layout_marginBottom="319dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,21 +30,55 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="86dp"
         android:layout_marginLeft="86dp"
-        android:layout_marginTop="466dp"
+        android:layout_marginTop="435dp"
         android:layout_marginEnd="85dp"
         android:layout_marginRight="85dp"
-        android:layout_marginBottom="223dp"
+        android:layout_marginBottom="254dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_group_3" />
 
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="131dp"
+        android:layout_marginLeft="131dp"
+        android:layout_marginTop="491dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginRight="130dp"
+        android:layout_marginBottom="90dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/button_1" />
+
+    <!--        <ImageView-->
+    <!--        android:id="@+id/imageView9"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="75dp"-->
+    <!--        android:layout_marginLeft="75dp"-->
+    <!--        android:layout_marginTop="133dp"-->
+    <!--        android:layout_marginEnd="83dp"-->
+    <!--        android:layout_marginRight="83dp"-->
+    <!--        android:layout_marginBottom="442dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:srcCompat="@drawable/ic_press" />-->
+
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="654dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="634dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,31 +86,31 @@
         app:srcCompat="@drawable/ic_rectangle_3" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/imageView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
-        android:layout_marginLeft="75dp"
-        android:layout_marginTop="133dp"
-        android:layout_marginEnd="83dp"
-        android:layout_marginRight="83dp"
-        android:layout_marginBottom="442dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="111dp"
+        android:layout_marginRight="111dp"
+        android:layout_marginBottom="647dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_press_the_button_below_to_start_recording_and_analyzing_audio" />
+        app:srcCompat="@drawable/ic_live_chord1" />
 
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="311dp"
-        android:layout_marginRight="311dp"
-        android:layout_marginBottom="668dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginLeft="51dp"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="310dp"
+        android:layout_marginRight="310dp"
+        android:layout_marginBottom="640dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,19 +118,19 @@
         app:srcCompat="@drawable/ic_group" />
 
     <ImageView
-        android:id="@+id/imageView12"
+        android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="110dp"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="111dp"
-        android:layout_marginRight="111dp"
-        android:layout_marginBottom="687dp"
+        android:layout_marginStart="87dp"
+        android:layout_marginLeft="87dp"
+        android:layout_marginTop="138dp"
+        android:layout_marginEnd="87dp"
+        android:layout_marginRight="87dp"
+        android:layout_marginBottom="483dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_live_chord1" />
+        app:srcCompat="@drawable/ic_press_the_button_below_to_start_recording" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
