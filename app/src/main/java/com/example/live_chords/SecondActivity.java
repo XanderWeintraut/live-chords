@@ -41,14 +41,13 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class SecondActivity extends AppCompatActivity {
 
-    private static final String LOG_TAG = "AudioRecordTest";
-    private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
     ImageButton buttonStart;
     String AudioSavePathInDevice = null;
     MediaRecorder mediaRecorder;
     Random random;
     String RandomAudioFileName = "ABCDEFGHIJKLMNOP";
     public static final int RequestPermissionCode = 1;
+    int a = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,22 +60,32 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(checkPermission()) {
-                    AudioSavePathInDevice = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + CreateRandomAudioFileName(5) + "AudioRecording.3gp";
+                    if(a % 2 == 0){
+                        AudioSavePathInDevice = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + CreateRandomAudioFileName(5) + "AudioRecording.3gp";
 
-                    MediaRecorderReady();
+                        MediaRecorderReady();
 
-                    try {
-                        mediaRecorder.prepare();
-                        mediaRecorder.start();
-                    } catch (IllegalStateException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                        try {
+                            mediaRecorder.prepare();
+                            mediaRecorder.start();
+                        } catch (IllegalStateException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                        a++;
+
+                        Toast.makeText(SecondActivity.this, "Recording started", Toast.LENGTH_LONG).show();
+
+                        setContentView(R.layout.activity_three);
                     }
+                    else{
+                        mediaRecorder.stop();
+                        a++;
 
-                    Toast.makeText(SecondActivity.this, "Recording started", Toast.LENGTH_LONG).show();
-
-                    setContentView(R.layout.activity_three);
+                        Toast.makeText(SecondActivity.this, "Recording Completed", Toast.LENGTH_LONG).show();
+                    }
                 } else {
                     requestPermission();
                 }
@@ -105,8 +114,6 @@ public class SecondActivity extends AppCompatActivity {
     private void requestPermission(){
         ActivityCompat.requestPermissions(SecondActivity.this, new String[]{WRITE_EXTERNAL_STORAGE, RECORD_AUDIO}, RequestPermissionCode);
     }
-
-    private ImageButton button;
 
     @Override
     public  void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults){
