@@ -131,7 +131,7 @@ public class SecondActivity extends AppCompatActivity {
             noteValues[i] = PitchConverter.hertzToMidiKey(peakFrequencies[i]);
         }
 
-        
+
 
         return chordName;
     }
