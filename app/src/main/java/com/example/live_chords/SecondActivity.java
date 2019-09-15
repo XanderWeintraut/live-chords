@@ -50,6 +50,7 @@ import java.util.Random;
 
 import static android.Manifest.permission.RECORD_AUDIO;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+import static android.util.Log.d;
 
 public class SecondActivity extends AppCompatActivity {
     private int sampleRate = 44100;
