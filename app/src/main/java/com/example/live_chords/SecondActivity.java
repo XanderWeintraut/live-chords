@@ -145,6 +145,7 @@ public class SecondActivity extends AppCompatActivity {
 
         for(int i = 0; i < peakFrequencies.length; i++) {
             noteValues[i] = PitchConverter.hertzToMidiKey(peakFrequencies[i]);
+          chordName = noteValues[i];
         }
 
 
